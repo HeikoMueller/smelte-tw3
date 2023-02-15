@@ -1,5 +1,5 @@
 const { addUtility } = require("./src/utils/style.js");
-
+const colors = require('tailwindcss/colors')
 const buildPalette = require("./src/utils/color.js");
 
 const merge = require("merge-deep");
@@ -11,7 +11,11 @@ const defaultColors = {
   success: "#4caf50",
   alert: "#ff9800",
   blue: "#2196f3",
-  dark: "#212121"
+  dark: "#212121",
+  green: colors.emerald,
+  yellow: colors.amber,
+  purple: colors.violet,
+  gray: colors.neutral,
 
   // These are material palette colors. You should keep only colors that you're using.
   // red: "#f44336",
@@ -33,20 +37,16 @@ const defaultColors = {
   // brown: "#795548"
 };
 
-module.exports = ({ colors = defaultColors, darkMode = true, ...config }) =>
+module.exports = ({ 
+  colors = defaultColors,
+  darkMode = true,
+  ...config }) =>
   merge(
     {
       content: [
         './pages/**/*.{html,js}',
         './components/**/*.{html,js}',
       ],
-      variants: darkMode
-        ? {
-            backgroundColor: ["dark", "dark-hover", "hover"],
-            borderColor: ["dark", "dark-focus"],
-            textColor: ["dark", "dark-hover", "dark-active"]
-          }
-        : {},
       theme: {
         extend: {
           width: {
@@ -145,6 +145,9 @@ module.exports = ({ colors = defaultColors, darkMode = true, ...config }) =>
           //   transDark: "rgb(236,239,241,0.2)"
           // }
         }
+      },
+      corePlugins: {
+        preflight: false,
       },
       plugins: [
         require("tailwind-css-variables")(),
