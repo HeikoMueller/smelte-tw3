@@ -4,7 +4,7 @@ import bundleSize from "rollup-plugin-bundle-size";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import svelte from "rollup-plugin-svelte";
-import { terser } from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 import pkg from "./package.json";
 const smelte = require("./rollup-plugin-smelte");
 
@@ -30,9 +30,11 @@ export default {
   ],
   plugins: [
     svelte({
-      dev: !production,
       emitCss: true,
-      hydratable: true
+      compilerOptions: {
+        dev: !production,
+        hydratable: true
+      }
     }),
     smelte({
       purge: true,

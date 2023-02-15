@@ -3,7 +3,7 @@ import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
 import babel from "@rollup/plugin-babel";
-import { terser } from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 import { string } from "rollup-plugin-string";
 import json from "rollup-plugin-json";
 import config from "sapper/config/rollup.js";
@@ -36,8 +36,10 @@ export default {
         include: "**/*.txt"
       }),
       svelte({
-        dev,
-        hydratable: true
+        compilerOptions: {
+          dev,
+          hydratable: true
+        }
       }),
       !dev && smelte(),
       resolve({
