@@ -1,0 +1,23 @@
+{
+	"name": "smelte-tw3",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "sapper dev -p 7777",
+		"build": "rollup -c rollup-publish.config.js",
+		"export": "sapper export --legacy --timeout 30000",		
+		"dev_VITE": "vite dev",
+		"build_VITE": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.5.0",
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.21",
+		"svelte": "^3.54.0",
+		"tailwindcss": "^3.2.6",
+		"vite": "^4.0.0"
+	},
+	"type": "module"
+}
