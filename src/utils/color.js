@@ -38,7 +38,7 @@ function buildPaletteByVarColor(varColor) {
 }
 
 function buildPalette(hex) {
-  const varColorMatch = hex.match(/var\((?<color>[^\)]+)/);
+  const varColorMatch = String(hex).match(/var\((?<color>[^\)]+)/);
   if (!!varColorMatch) {
     return buildPaletteByVarColor(varColorMatch.groups.color);
   }
