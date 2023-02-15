@@ -129,9 +129,11 @@ input::-webkit-inner-spin-button {
 	}
 }
 
-@layer .mode-dark {
-  @apply text-gray-100 bg-dark-500 duration-100 pointer-events-auto;
-}
+@layer components {
+  .mode-dark {
+    @apply text-gray-100 bg-dark-500 duration-100 pointer-events-auto;
+  }
+} 
 
 
 input[type="range"] {
